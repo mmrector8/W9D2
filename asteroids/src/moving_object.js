@@ -26,8 +26,13 @@ class MovingObject {
   }
 
   move() {
+    console.log('before pos');
+    console.log(this.pos);
+    console.log(this.vel);
     this.pos[0] += this.vel[0];
     this.pos[1] += this.vel[1];
+    console.log('after pos');
+    console.log(this.pos);
   }
 }
 

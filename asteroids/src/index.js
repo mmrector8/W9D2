@@ -11,7 +11,8 @@ window.MovingObject = MovingObject;
 const canvas = document.getElementById('game-canvas');
 
 let g = new Game(canvas);
-
+// g.draw()
+// g.moveObjects();
 
 // const mo = new MovingObject({
 //   pos: [30, 30],  

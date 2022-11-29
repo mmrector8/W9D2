@@ -12,7 +12,7 @@ export default class Game {
     this.addAsteroids();
     this.ctx = canvas.getContext('2d');
     this.draw(this.ctx);
-
+    this.animate();
   }
 
   addAsteroids() {
@@ -24,8 +24,6 @@ export default class Game {
   }
 
   randomPosition() {
-
-
     return {pos: [Math.floor(Math.random() * DIM_X), 
             Math.floor(Math.random() * DIM_Y)]};
   }
@@ -35,5 +33,19 @@ export default class Game {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, DIM_X, DIM_Y);
     this.asteroids.forEach(roid => roid.draw(ctx));
+  }
+
+  moveObjects(){
+    this.asteroids.forEach(roid => roid.move());
+    //  for (let i=0; i < this.asteroids.length; i++){
+  //   this.asteroids[i].move();
+  //  }
+  }
+
+  animate(){
+    this.moveObjects();
+    this.draw(this.ctx);
+    
+    requestAnimationFrame(this.animate.bind(this));
   }
 }
